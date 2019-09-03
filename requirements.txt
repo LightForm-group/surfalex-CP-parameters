@@ -2,3 +2,4 @@ numpy
 plotly
 damask-parse
 ipywidgets
+tensile-test
