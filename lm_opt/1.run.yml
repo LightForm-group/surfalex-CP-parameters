@@ -1,0 +1,32 @@
+inherits: damask
+root_archive: dropbox-lm-opt
+directory: <<sim_dir>>
+loop:
+  max_iterations: 10  
+command_groups:
+  - commands:
+      - DAMASK_spectral -g <<geom_fn>> -l <<load_fn>>
+    archive: dropbox-lm-opt
+    alternate_scratch: /mnt/cr01-home01/mbdxqap3/damask_temp # RDS
+    scheduler_options:
+      pe: smp.pe 8
+  - commands:
+      - postResults --cr "f,p" --co "totalshear" <<spectral_fn>>
+    scheduler_options:
+      l: short
+  - commands:      
+      - addCauchy <<table_inc_fn>>
+      - addStrainTensors --logarithmic --left <<table_inc_fn>>
+      - addMises --stress "Cauchy" --strain "ln(V)" <<table_inc_fn>>
+    nesting: nest
+    archive: dropbox-lm-opt
+    scheduler_options:
+      l: short
+  - directory: ''
+    commands:
+      - python lm_opt.py iterate
+
+variables:
+  table_inc_fn:
+    data: ['']
+    value: 'postProc/<<spectral_base_fn>>{}.txt'

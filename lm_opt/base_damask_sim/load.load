@@ -1,0 +1,4 @@
+fdot 1e-4 0 0 0 * 0 0 0 * p * * * * 0 * * * 0 time 6 incs 10       # elastic:      0.0000 to 0.0006 (0.0006) over  10 incs (0.00006 per inc)
+fdot 1e-4 0 0 0 * 0 0 0 * p * * * * 0 * * * 0 time 44 incs 75      # transition:   0.0006 to 0.0050 (0.0044) over  75 incs (0.00006 per inc)
+fdot 1e-4 0 0 0 * 0 0 0 * p * * * * 0 * * * 0 time 1725 incs 50    # hardening:    0.0050 to 0.1775 (0.1725) over 50 incs (0.00345 per inc)
+fdot 1e-4 0 0 0 * 0 0 0 * p * * * * 0 * * * 0 time 1725 incs 25    # hardening:    0.1775 to 0.3500 (0.1725) over 50 incs (0.00690 per inc)

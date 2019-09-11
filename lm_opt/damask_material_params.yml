@@ -1,0 +1,50 @@
+homogenization:
+  - name: SX
+    keys: 
+      type: none
+crystallite:
+  - name: almostAll
+    outputs: [ # note: these outputs are things that can be accessed with `postResults`
+      phase,
+      texture,
+      volume,
+      orientation,
+      eulerangles,
+      grainrotation,
+      f,
+      fe,
+      fp,
+      e,
+      ee,
+      p,
+      lp,
+    ]      
+phase:
+  - name: Aluminium_phenopowerlaw
+    keys:
+      elasticity: hooke
+      plasticity: phenopowerlaw
+      lattice_structure: fcc
+      Nslip: 12
+      Ntwin: 0
+      c11: 106.75e9
+      c12: 60.41e9
+      c44: 28.34e9
+      gdot0_slip: 0.001
+      n_slip: 20
+      tau0_slip: 31e6
+      tausat_slip: 95e6
+      a_slip: 2.25
+      h0_slipslip: 400e6
+      interaction_slipslip: 1 1 1.4 1.4 1.4 1.4
+      atol_resistance: 1
+    outputs: [
+      resistance_slip,
+      shearrate_slip,
+      resolvedstress_slip,
+      totalshear,
+      resistance_twin,
+      shearrate_twin,
+      resolvedstress_twin,
+      totalvolfrac,
+    ]
