@@ -126,4 +126,4 @@ dmypy.json
 /.vscode
 *.code-workspace
 
-failure_examples/
+dev/
