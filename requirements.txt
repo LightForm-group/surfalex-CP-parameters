@@ -1,5 +1,6 @@
 numpy
 plotly
-damask-parse
+damask-parse==0.1.2
 ipywidgets
-tensile-test
+tensile-test==0.1.2
+ruamel.yaml
